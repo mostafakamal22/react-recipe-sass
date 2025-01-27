@@ -1,8 +1,7 @@
-@import "./variables";
+@use "./variables" as *;
 
 body {
   font-family: $font-stack;
-  background-color: $primary-color;
   margin: 0;
   padding: 0;
 }
