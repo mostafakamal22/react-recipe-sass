@@ -3,14 +3,14 @@ import { createBrowserRouter } from "react-router-dom";
 import MealDetails from "@/components/MealDetails/MealDetails";
 import Category from "@/components/Category/Category";
 import NotFound from "@/components/NotFound/NotFound";
-import Layout from "@/components/Layout/Layout";
 import Home from "@/components/Home/Home";
+import App from "@/App";
 
 export const router = createBrowserRouter(
   [
     {
       path: "/",
-      Component: Layout,
+      Component: App,
       children: [
         {
           index: true,

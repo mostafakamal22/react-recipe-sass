@@ -1,13 +1,7 @@
-import Header from "@/components/Header/Header";
+import Layout from "@/components/Layout/Layout";
 
 function App() {
-  return (
-    <div>
-      <h1>React Recipe</h1>
-
-      <Header />
-    </div>
-  );
+  return <Layout />;
 }
 
 export default App;
