@@ -4,29 +4,31 @@ import MealDetails from "@/components/MealDetails/MealDetails";
 import Category from "@/components/Category/Category";
 import NotFound from "@/components/NotFound/NotFound";
 import Home from "@/components/Home/Home";
-import App from "@/App";
+import Layout from "@/components/Layout/Layout";
 
 export const router = createBrowserRouter(
   [
     {
       path: "/",
-      Component: App,
+      element: <Layout />,
       children: [
         {
           index: true,
-          Component: Home,
+          element: <Home />,
         },
         {
           path: "/mealdetails/:id",
-          Component: MealDetails,
+          element: <MealDetails />,
         },
         {
           path: "/category/:name",
-          Component: Category,
+          element: <Category />,
         },
+        { path: "*", element: <NotFound /> },
       ],
     },
-    { path: "*", Component: NotFound },
   ],
-  { basename: import.meta.env.BASE_URL }
+  {
+    basename: import.meta.env.BASE_URL,
+  }
 );
