@@ -6,7 +6,7 @@
   "homepage": "https://mostafakamal22.github.io/react-recipe-sass",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/react-recipe-sass",
+    "build": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
