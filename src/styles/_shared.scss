@@ -1,0 +1,41 @@
+// 1. Card style
+%card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border: 1px solid #ddd;
+}
+
+// 2. Button base style
+%button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+// 3. Text ellipsis
+%text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 4. Flex center
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 5. Responsive container
+%container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
