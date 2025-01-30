@@ -6,7 +6,7 @@ $font-sm: 0.75rem;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 40;
   width: 16rem;
   height: 100vh;
   transition: transform 0.3s ease;
@@ -49,7 +49,6 @@ $font-sm: 0.75rem;
 
       &-border {
         border: 2px solid $border-color;
-        padding: 0.75rem 1.5rem;
       }
     }
   }
@@ -58,7 +57,7 @@ $font-sm: 0.75rem;
 .sidebar-link {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   color: inherit;
   text-decoration: none;
   width: 100%;

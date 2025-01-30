@@ -1,4 +1,6 @@
 import styles from "./MealDetails.module.scss";
+import { FaYoutube } from "react-icons/fa";
+import { GiEarthAfricaEurope } from "react-icons/gi";
 
 export default function MealDetails() {
   return (
@@ -21,7 +23,7 @@ export default function MealDetails() {
                       rel="noopener noreferrer"
                       href="https://www.youtube.com/watch?v=H5SmjR-fxUs"
                     >
-                      🎥 YouTube
+                      <FaYoutube size={18} /> YouTube
                     </a>
                   </li>
                   <li className={styles.sourceButton}>
@@ -30,7 +32,7 @@ export default function MealDetails() {
                       rel="noopener noreferrer"
                       href="https://www.homestylemag.co.uk/recipe/517/main-courses/roast-fennel-and-aubergine-paella"
                     >
-                      📜 Source
+                      <GiEarthAfricaEurope size={18} /> Source
                     </a>
                   </li>
                 </ul>
