@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import MealDetails from "@/components/MealDetails/MealDetails";
 import Category from "@/components/Category/Category";
 import NotFound from "@/components/NotFound/NotFound";
-import Home from "@/components/Home/Home";
 import Layout from "@/components/Layout/Layout";
 
 export const router = createBrowserRouter(
@@ -14,7 +13,7 @@ export const router = createBrowserRouter(
       children: [
         {
           index: true,
-          element: <Home />,
+          element: <Category />,
         },
         {
           path: "/mealdetails/:id",

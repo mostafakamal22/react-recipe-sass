@@ -65,7 +65,7 @@ export default function CategoryTabs() {
               className={`${styles["category-link"]} ${
                 activeCategory === category ? styles.active : ""
               }`}
-              to={`/category/${category}`}
+              to={category === "All" ? "/" : `/category/${category}`}
             >
               {category}
             </Link>
