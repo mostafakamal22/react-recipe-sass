@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Main.scss";
 
 export default function Main() {
@@ -48,7 +49,7 @@ export default function Main() {
             />
             <h3 className="meal-title">Roast fennel</h3>
             <button className="meal-btn">
-              <a href="#/mealdetails/52942">View Recipe</a>
+              <Link to="/mealdetails/52942">View Recipe</Link>
             </button>
           </div>
         </div>

@@ -1,0 +1,102 @@
+.mealDetails {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.leftPanel {
+  flex: 2;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-family: "Pacifico", cursive;
+}
+
+.contentGrid {
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mealImage {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.youtubeButton,
+.sourceButton {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.youtubeButton {
+  background-color: #dc2626;
+}
+
+.sourceButton {
+  background-color: #2563eb;
+}
+
+.recipeText {
+  font-family: "Pacifico", cursive;
+}
+
+.rightPanel {
+  flex: 1;
+  padding: 1rem;
+}
+
+.ingredientsCard {
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.ingredientsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid black;
+}
+
+.ingredientItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
