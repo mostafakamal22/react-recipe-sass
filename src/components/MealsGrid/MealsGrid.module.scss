@@ -34,7 +34,6 @@
     }
 
     .meal-img {
-      width: 100%;
       border-radius: 50%;
       margin-top: -5rem;
       margin-bottom: 2rem;
@@ -47,6 +46,15 @@
       font-size: 1.25rem;
       font-weight: 600;
       letter-spacing: 0.05em;
+    }
+
+    .meal-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      color: #059669;
+      margin-top: 0.5rem;
     }
 
     .meal-btn {
