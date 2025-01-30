@@ -12,6 +12,10 @@
   cursor: pointer;
   outline: none;
 
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+
   &:hover {
     background-color: #f3f4f6;
   }

@@ -1,6 +1,39 @@
 import styles from "./CategoryTabs.module.scss";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function CategoryTabs() {
+  const navigate = useNavigate();
+
+  const categories = [
+    "All",
+    "Beef",
+    "Breakfast",
+    "Chicken",
+    "Dessert",
+    "Goat",
+    "Lamb",
+    "Miscellaneous",
+    "Pasta",
+    "Pork",
+    "Seafood",
+    "Side",
+    "Starter",
+    "Vegan",
+    "Vegetarian",
+  ];
+
+  const params = useParams();
+
+  const activeCategory = categories.find((c) => c === params?.name) || "All";
+
+  function setActiveCategory(category) {
+    if (category === "All") {
+      navigate("/");
+    } else {
+      navigate(`/category/${category}`);
+    }
+  }
+
   return (
     <>
       <h1 className={styles["title"]}>Learn, Cook, Eat Your Food</h1>
@@ -10,34 +43,34 @@ export default function CategoryTabs() {
         <label htmlFor="tabs" className="sr-only">
           Select your category
         </label>
-        <select id="tabs" className={styles["tabs-select"]}>
-          <option value="Beef">Beef</option>
-          <option value="Breakfast">Breakfast</option>
-          <option value="Chicken">Chicken</option>
-          <option value="Dessert">Dessert</option>
-          <option value="Goat">Goat</option>
-          <option value="Lamb">Lamb</option>
-          <option value="Miscellaneous">Miscellaneous</option>
-          <option value="Pasta">Pasta</option>
-          <option value="Pork">Pork</option>
-          <option value="Seafood">Seafood</option>
-          <option value="Side">Side</option>
-          <option value="Starter">Starter</option>
-          <option value="Vegan">Vegan</option>
-          <option value="Vegetarian">Vegetarian</option>
+        <select
+          id="tabs"
+          className={styles["tabs-select"]}
+          value={activeCategory}
+          onChange={(e) => setActiveCategory(e.target.value)}
+        >
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
       </div>
 
       {/* Desktop View */}
       <ul className={styles["categories"]}>
-        <li className={styles["category-item"]}>
-          <a
-            className={`${styles["category-link"]} ${styles.active}`}
-            href="#/category/Vegan"
-          >
-            Vegan
-          </a>
-        </li>
+        {categories.map((category) => (
+          <li key={category} className={styles["category-item"]}>
+            <Link
+              className={`${styles["category-link"]} ${
+                activeCategory === category ? styles.active : ""
+              }`}
+              to={`/category/${category}`}
+            >
+              {category}
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );
