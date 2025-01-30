@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
-
-import styles from "./Layout.module.scss";
 import Footer from "../Footer/Footer";
 import Sidebar from "../Sidebar/Sidebar";
+import Main from "../Main/Main";
 
 export default function Layout() {
   return (
     <>
-      <div className={styles.layout}>
+      <div>
         <Sidebar />
-        <Outlet />
+
+        <Main>
+          <Outlet />
+        </Main>
       </div>
       <Footer />
     </>

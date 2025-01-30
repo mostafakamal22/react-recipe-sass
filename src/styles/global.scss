@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 body {
+  background-color: $body-bg-color;
   font-family: $main-font;
   margin: 0;
   padding: 0;
@@ -16,6 +23,16 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+  width: 100%;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -27,4 +44,47 @@ h6 {
 
 h1 {
   font-family: $secondary-font;
+}
+
+.main-container {
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 1rem;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 16rem;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 2rem 1rem;
+
+  @media (min-width: 640px) {
+    max-width: 640px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 768px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
