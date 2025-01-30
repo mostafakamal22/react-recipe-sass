@@ -1,32 +1,56 @@
 import logo from "@/assets/images/logo.webp";
-import { SiGreasyfork } from "react-icons/si";
+import styles from "./Sidebar.module.scss";
 
-import "./Sidebar.scss";
+import { SiGreasyfork } from "react-icons/si";
+import { useContext } from "react";
+import { SidebarContext } from "../../context/sidebar";
+import { useClickAway, useMediaQuery } from "@uidotdev/usehooks";
 
 export default function Sidebar() {
+  const { isSidebarOpen, setSidebarToggle } = useContext(SidebarContext);
+  const isSmallDevice = useMediaQuery("only screen and (max-width : 640px)");
+
+  const ref = useClickAway(() => {
+    if (isSidebarOpen && isSmallDevice) {
+      setSidebarToggle(false);
+    }
+  });
+
   return (
-    <aside id="default-sidebar" className="sidebar" aria-label="Sidebar">
-      <div className="sidebar-content">
+    <aside
+      className={`${styles["sidebar"]} ${
+        isSidebarOpen ? styles["sidebar-open"] : ""
+      }`}
+      aria-label="Sidebar"
+      ref={ref}
+    >
+      <div className={styles["sidebar-content"]}>
         <div>
-          <img src={logo} className="sidebar-logo" alt="logo" />
+          <img src={logo} className={styles["sidebar-logo"]} alt="logo" />
         </div>
-        <ul className="sidebar-list">
-          <li className="sidebar-item sidebar-item-primary">
-            <a href="#/" className="sidebar-link">
-              <SiGreasyfork className="sidebar-icon" />
-              <span className="sidebar-text">Meals</span>
+        <ul className={styles["sidebar-list"]}>
+          <li
+            className={`${styles["sidebar-item"]} ${styles["sidebar-item-primary"]}`}
+          >
+            <a href="#/" className={styles["sidebar-link"]}>
+              <SiGreasyfork className={styles["sidebar-icon"]} />
+              <span className={styles["sidebar-text"]}>Meals</span>
             </a>
           </li>
-          <li className="sidebar-item sidebar-item-border">
-            <a href="#/" className="sidebar-link">
-              <SiGreasyfork className="sidebar-icon" />
-              <span className="sidebar-text">Ingredients</span>
+          <li
+            className={`${styles["sidebar-item"]} ${styles["sidebar-item-border"]}`}
+          >
+            <a href="#/" className={styles["sidebar-link"]}>
+              <SiGreasyfork className={styles["sidebar-icon"]} />
+              <span className={styles["sidebar-text"]}>Ingredients</span>
             </a>
           </li>
-          <li className="sidebar-item sidebar-item-border">
-            <a href="#/" className="sidebar-link">
-              <SiGreasyfork className="sidebar-icon" />
-              <span className="sidebar-text">Area</span>
+          <li
+            className={`${styles["sidebar-item"]} ${styles["sidebar-item-border"]}`}
+          >
+            <a href="#/" className={styles["sidebar-link"]}>
+              <SiGreasyfork className={styles["sidebar-icon"]} />
+              <span className={styles["sidebar-text"]}>Area</span>
             </a>
           </li>
         </ul>

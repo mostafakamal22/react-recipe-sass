@@ -1,21 +1,25 @@
 import logo from "@/assets/images/logo.webp";
-import "./Footer.scss";
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-header">
-          <a href="#" className="footer-logo">
-            <img src={logo} alt="Recipe Logo" className="footer-logo-image" />
-            <span className="footer-logo-text">Recipe</span>
+    <footer className={styles.footer}>
+      <div className={styles["footer-content"]}>
+        <div className={styles["footer-header"]}>
+          <a href="#" className={styles["footer-logo"]}>
+            <img
+              src={logo}
+              alt="Recipe Logo"
+              className={styles["footer-logo-image"]}
+            />
+            <span className={styles["footer-logo-text"]}>Recipe</span>
           </a>
-          <span className="footer-brand">Route</span>
+          <span className={styles["footer-brand"]}>Route</span>
         </div>
-        <hr className="footer-divider" />
-        <span className="footer-rights">
+        <hr className={styles["footer-divider"]} />
+        <span className={styles["footer-rights"]}>
           © 2025{" "}
-          <a href="#0" className="footer-rights-link">
+          <a href="#0" className={styles["footer-rights-link"]}>
             Mostafa Kamal™
           </a>
           . All Rights Reserved.

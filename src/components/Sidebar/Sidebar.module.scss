@@ -72,3 +72,7 @@ $font-sm: 0.75rem;
 .sidebar-text {
   font-size: 1.25rem;
 }
+
+.sidebar-open {
+  transform: translateX(0);
+}

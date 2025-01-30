@@ -1,0 +1,29 @@
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-left: 0.75rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  border-radius: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: #f3f4f6;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #e5e7eb;
+  }
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+  }
+}
