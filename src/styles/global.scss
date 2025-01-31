@@ -91,3 +91,16 @@ h1 {
   white-space: nowrap;
   border-width: 0;
 }
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #842029;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  border-left-style: solid;
+  border-left-color: #842029;
+  border-left-width: 4px;
+}
