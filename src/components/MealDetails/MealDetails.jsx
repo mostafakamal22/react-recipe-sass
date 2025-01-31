@@ -2,12 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { FaYoutube } from "react-icons/fa";
 import { GiEarthAfricaEurope } from "react-icons/gi";
 import { Link, useParams } from "react-router-dom";
+import { HiHome } from "react-icons/hi";
 import axios from "axios";
 import styles from "./MealDetails.module.scss";
-
-import "react-loading-skeleton/dist/skeleton.css";
 import MealDetailsSkeleton from "./MealDetailsSkeleton";
-import { HiHome } from "react-icons/hi";
+import FetchError from "../Shared/FetchError";
 
 export default function MealDetails() {
   const params = useParams();
@@ -29,10 +28,17 @@ export default function MealDetails() {
       return res.data.meals;
     },
     staleTime: 1000 * 60,
-    refetchInterval: 1000 * 60,
     refetchOnReconnect: true,
     refetchOnWindowFocus: true,
   });
+
+  if (isLoading || isFetching) {
+    return <MealDetailsSkeleton />;
+  }
+
+  if (isError) {
+    return <FetchError />;
+  }
 
   if (!Array.isArray(meals) || meals?.length === 0) {
     return (
@@ -40,24 +46,7 @@ export default function MealDetails() {
         <p className="errorMessage">
           Meal not found. Please go back to the home page.
         </p>
-        <Link to="/" className={styles.sourceButton}>
-          <HiHome /> Go Home
-        </Link>
-      </div>
-    );
-  }
-
-  if (isLoading || isFetching) {
-    return <MealDetailsSkeleton />;
-  }
-
-  if (isError) {
-    return (
-      <div>
-        <p className="errorMessage">
-          oops! something went wrong. Please try again or go home page.
-        </p>
-        <Link to="/" className={styles.sourceButton}>
+        <Link to="/" className="homeButton">
           <HiHome /> Go Home
         </Link>
       </div>

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import styles from "./MealsGrid.module.scss";
 import axios from "axios";
 import MealCard from "./MealCard";
+import MealsGridSkeleton from "./MealsGridSkeleton";
+import FetchError from "../Shared/FetchError";
 
 export default function MealsGrid() {
   const params = useParams();
@@ -14,7 +16,6 @@ export default function MealsGrid() {
     isLoading,
     isFetching,
     data: meals,
-    error,
   } = useQuery({
     queryKey: ["meals", activeCategory],
     queryFn: async () => {
@@ -27,17 +28,16 @@ export default function MealsGrid() {
       return res.data.meals;
     },
     staleTime: 1000 * 60,
-    refetchInterval: 1000 * 60,
     refetchOnReconnect: true,
     refetchOnWindowFocus: true,
   });
 
   if (isLoading || isFetching) {
-    return <div>Loading...</div>;
+    return <MealsGridSkeleton />;
   }
 
-  if (isError) {
-    return <div>Error: {error.message}</div>;
+  if (isError || !meals) {
+    return <FetchError />;
   }
 
   return (

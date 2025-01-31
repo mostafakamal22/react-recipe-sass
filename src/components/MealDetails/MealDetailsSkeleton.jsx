@@ -1,5 +1,6 @@
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./MealDetails.module.scss";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function MealDetailsSkeleton() {
   return (
