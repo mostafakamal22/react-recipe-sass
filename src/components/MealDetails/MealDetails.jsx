@@ -3,6 +3,8 @@ import { FaYoutube } from "react-icons/fa";
 import { GiEarthAfricaEurope } from "react-icons/gi";
 import { Link, useParams } from "react-router-dom";
 import { HiHome } from "react-icons/hi";
+import { useWindowScroll } from "@uidotdev/usehooks";
+import { useEffect } from "react";
 import axios from "axios";
 import styles from "./MealDetails.module.scss";
 import MealDetailsSkeleton from "./MealDetailsSkeleton";
@@ -12,6 +14,8 @@ export default function MealDetails() {
   const params = useParams();
 
   const mealId = params?.id || "";
+
+  const [, scrollTo] = useWindowScroll();
 
   const {
     isError,
@@ -31,6 +35,10 @@ export default function MealDetails() {
     refetchOnReconnect: true,
     refetchOnWindowFocus: true,
   });
+
+  useEffect(() => {
+    scrollTo({ top: 0, behavior: "smooth" });
+  }, [scrollTo]);
 
   if (isLoading || isFetching) {
     return <MealDetailsSkeleton />;
