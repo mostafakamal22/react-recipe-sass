@@ -1,31 +1,28 @@
 .meals {
   margin-top: 6rem;
-  display: grid;
-  column-gap: 1.5rem;
-  row-gap: 5rem;
+  @include grid($columns: 1, $column-gap: 1.5rem, $row-gap: 5rem);
 
-  @media (min-width: 768px) {
+  @include respond(md) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 1024px) {
+  @include respond(lg) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 1280px) {
+  @include respond(xl) {
     grid-template-columns: repeat(4, 1fr);
   }
 
   .meal {
-    background: white;
+    @extend %card;
     padding: 3rem 2rem;
-    border-radius: 35px;
     text-align: center;
+    border-radius: 35px;
     transition: transform 0.3s, box-shadow 0.3s;
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
       .meal-img {
         transform: rotate(360deg);
@@ -50,15 +47,13 @@
     }
 
     .meal-area {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
+      @include flex($gap: 0.5rem);
       color: #059669;
       margin-top: 0.5rem;
     }
 
     .meal-btn {
+      @extend %button;
       background: linear-gradient(to right, #34d399, #10b981);
       color: white;
       font-weight: 600;

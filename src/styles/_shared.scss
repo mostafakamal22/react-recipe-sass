@@ -1,4 +1,4 @@
-// 1. Card style
+// Card style
 %card {
   background-color: #ffffff;
   border-radius: 10px;
@@ -7,7 +7,7 @@
   border: 1px solid #ddd;
 }
 
-// 2. Button base style
+// Button base style
 %button {
   display: inline-flex;
   align-items: center;
@@ -19,17 +19,10 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-// 3. Text ellipsis
+// Text ellipsis
 %text-ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 12ch;
-}
-
-// 4. Flex center
-%flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
