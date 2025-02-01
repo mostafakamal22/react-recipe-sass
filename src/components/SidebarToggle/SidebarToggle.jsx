@@ -1,8 +1,8 @@
 import { BiMenuAltLeft } from "react-icons/bi";
-import styles from "./SidebarToggle.module.scss";
 import { useContext } from "react";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { SidebarContext } from "../../context/sidebar";
+import styles from "./SidebarToggle.module.scss";
 
 export default function SidebarToggle() {
   const { isSidebarOpen, setSidebarToggle } = useContext(SidebarContext);

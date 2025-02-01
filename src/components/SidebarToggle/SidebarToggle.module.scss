@@ -1,28 +1,27 @@
 .sidebar-toggle {
-  display: flex;
-  align-items: center;
+  @include flex(row, center); // Applied flex mixin
   padding: 0.5rem;
   margin-top: 0.5rem;
   margin-left: 0.75rem;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: $gray-500;
   border-radius: 0.5rem;
   background: transparent;
   border: none;
   cursor: pointer;
   outline: none;
 
-  @media screen and (min-width: 640px) {
+  @include respond(sm) {
     display: none;
   }
 
   &:hover {
-    background-color: #f3f4f6;
+    background-color: $gray-100;
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #e5e7eb;
+    box-shadow: 0 0 0 2px $gray-200;
   }
 
   .icon {
