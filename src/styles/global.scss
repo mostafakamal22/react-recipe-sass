@@ -54,7 +54,7 @@ h1 {
   overflow: hidden;
   padding: 1rem;
 
-  @media screen and (min-width: 768px) {
+  @include respond(md) {
     margin-left: 16rem;
   }
 }
@@ -63,25 +63,25 @@ h1 {
   width: 100%;
   padding: 2rem 1rem;
 
-  @media (min-width: 640px) {
+  @include respond(sm) {
     max-width: 640px;
   }
 
-  @media (min-width: 768px) {
+  @include respond(md) {
     max-width: 768px;
   }
 
-  @media (min-width: 1024px) {
+  @include respond(lg) {
     max-width: 1024px;
   }
 
-  @media (min-width: 1280px) {
+  @include respond(xl) {
     max-width: 1280px;
   }
 }
 
 .sr-only {
-  position: absolute;
+  @include absolute();
   width: 1px;
   height: 1px;
   padding: 0;
@@ -93,20 +93,22 @@ h1 {
 }
 
 .errorMessage {
-  background-color: #f8d7da;
-  color: #842029;
+  background-color: $red-100;
+  color: $red-700;
   padding: 1rem;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
   margin-top: 2rem;
   border-left-style: solid;
-  border-left-color: #842029;
+  border-left-color: $red-700;
   border-left-width: 4px;
 }
 
 .homeButton {
-  display: block;
+  @include flex(row, center);
+  gap: 4px;
+  text-decoration: none;
   margin: auto;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -115,12 +117,4 @@ h1 {
   font-weight: 500;
   background-color: #2563eb;
   width: fit-content;
-
-  a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: inherit;
-    text-decoration: none;
-  }
 }
