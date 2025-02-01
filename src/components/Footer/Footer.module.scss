@@ -13,11 +13,10 @@
   }
 
   &-header {
-    @include flex(row, center, space-between, 20px);
+    @include flex(row, center, space-between, 20px, wrap); // Applied flex mixin
 
     .footer-logo {
-      display: flex;
-      align-items: center;
+      @include flex(row, center, flex-start); // Applied flex mixin
       margin-bottom: 1rem;
 
       .footer-logo-image {
@@ -59,9 +58,14 @@
     }
   }
 
-  @media (min-width: 640px) {
+  @include respond(sm) {
     .footer-header {
-      @include flex(row, center, space-between, 20px);
+      @include flex(
+        row,
+        center,
+        space-between,
+        20px
+      ); // Applied flex mixin for small screens
     }
   }
 }
