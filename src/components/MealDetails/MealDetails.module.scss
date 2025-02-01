@@ -1,9 +1,6 @@
 .mealDetails {
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-
-  @media (min-width: 1024px) {
+  @include flex(column, start, flex-start, 1rem);
+  @include respond(lg) {
     flex-direction: row;
   }
 }
@@ -19,10 +16,9 @@
 }
 
 .contentGrid {
-  display: grid;
-  gap: 1rem;
+  @include grid(1, 1rem);
 
-  @media (min-width: 1024px) {
+  @include respond(lg) {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -34,15 +30,14 @@
 }
 
 .links {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
+  @include flex(row, center, center, 1rem);
   list-style: none;
   padding: 0;
 }
 
 .youtubeButton,
 .sourceButton {
+  @extend %button;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   color: white;
@@ -50,9 +45,7 @@
   font-weight: 500;
 
   a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    @include flex(row, center, flex-start, 0.5rem);
     color: inherit;
     text-decoration: none;
   }
@@ -67,12 +60,16 @@
 }
 
 .rightPanel {
+  width: 100%;
   flex: 1;
-  padding: 1rem;
+
+  @include respond(md) {
+    padding: 1rem;
+  }
 }
 
 .ingredientsCard {
-  background: white;
+  @extend %card;
   border-radius: 16px;
   padding: 1rem;
 }
@@ -86,8 +83,7 @@
 }
 
 .ingredientItem {
-  display: flex;
-  justify-content: space-between;
+  @include flex(row, center, space-between, 0.5rem);
   padding: 0.5rem;
   border-bottom: 2px solid #e5e7eb;
 
