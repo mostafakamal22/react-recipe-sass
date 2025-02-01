@@ -1,10 +1,38 @@
+import axios from "axios";
 import styles from "./CategoryTabs.module.scss";
+import CategoryTabsSkeleton from "./CategoryTabsSkeleton";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 export default function CategoryTabs() {
   const navigate = useNavigate();
+  const params = useParams();
 
-  const categories = [
+  const { isLoading, isFetching, data } = useQuery({
+    queryKey: ["category"],
+    queryFn: async () => {
+      const res = await axios.get(
+        "https://www.themealdb.com/api/json/v1/1/list.php?c=list"
+      );
+
+      return res?.data?.meals?.map((category) => category?.strCategory);
+    },
+    staleTime: Infinity,
+    refetchInterval: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  });
+
+  if (isLoading || isFetching) {
+    return (
+      <>
+        <h1 className={styles["title"]}>Learn, Cook, Eat Your Food</h1>
+        <CategoryTabsSkeleton />
+      </>
+    );
+  }
+
+  const alternativeCategories = [
     "All",
     "Beef",
     "Breakfast",
@@ -22,7 +50,7 @@ export default function CategoryTabs() {
     "Vegetarian",
   ];
 
-  const params = useParams();
+  const categories = data ? ["All", ...data] : alternativeCategories;
 
   const activeCategory = categories.find((c) => c === params?.name) || "All";
 
