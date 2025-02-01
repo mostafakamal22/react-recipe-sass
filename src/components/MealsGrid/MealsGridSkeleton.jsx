@@ -9,17 +9,20 @@ export default function MealsGridSkeleton() {
       <SkeletonTheme baseColor="#9ddaf8" highlightColor="#60caff">
         {arr.map((i) => (
           <div key={i} className={styles.meal}>
+            <div className={styles["skeleton-img"]}>
+              <Skeleton
+                count={1}
+                width={100}
+                height={100}
+                borderRadius={"50%"}
+              />
+            </div>
+
             <div>
               <Skeleton count={1} />
-              <Skeleton count={1} />
             </div>
 
-            <div className={styles["meal-title"]}>
-              {" "}
-              <Skeleton count={1} />
-            </div>
-
-            <div className={styles["meal-area"]}>
+            <div>
               <Skeleton count={1} />
             </div>
 
