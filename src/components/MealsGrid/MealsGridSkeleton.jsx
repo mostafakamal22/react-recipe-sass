@@ -12,8 +12,8 @@ export default function MealsGridSkeleton() {
             <div className={styles["skeleton-img"]}>
               <Skeleton
                 count={1}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 borderRadius={"50%"}
               />
             </div>
@@ -26,8 +26,14 @@ export default function MealsGridSkeleton() {
               <Skeleton count={1} />
             </div>
 
-            <div className={styles["meal-btn"]}>
-              <Skeleton count={1} />
+            <div style={{ marginTop: "1rem" }}>
+              <Skeleton
+                count={1}
+                height={40}
+                baseColor="#25ca8e"
+                highlightColor="#5ecea5"
+                borderRadius={100}
+              />
             </div>
           </div>
         ))}
